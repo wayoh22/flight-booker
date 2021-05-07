@@ -5,15 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Flight.destroy_all
-
-flight_list = [
-  ["SLC", "ATL"],
-  ["ATL", "SLC"]
-]
-
-flight_list.each do | start_airport_id, finish_airport_id |
-  Flight.create(start_airport_id: start_airport_id, finish_airport_id: finish_airport_id)
-end
-  
