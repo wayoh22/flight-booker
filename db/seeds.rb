@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Flight.create(start_airport_id: "JFK")
-Flight.create(start_airport_id: "LOG")
-Flight.create(start_airport_id: "SLC")
-Flight.create(start_airport_id: "ATL")
-Flight.create(start_airport_id: "LAX")
+Flight.destroy_all
 
-Flight.create(finish_airport_id: "JFK")
-Flight.create(finish_airport_id: "LOG")
-Flight.create(finish_airport_id: "SLC")
-Flight.create(finish_airport_id: "ATL")
-Flight.create(finish_airport_id: "LAX")
+flight_list = [
+  ["SLC", "ATL"],
+  ["ATL", "SLC"]
+]
+
+flight_list.each do | start_airport_id, finish_airport_id |
+  Flight.create(start_airport_id: start_airport_id, finish_airport_id: finish_airport_id)
+end
+  
